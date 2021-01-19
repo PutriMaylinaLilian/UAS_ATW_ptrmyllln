@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2021 at 12:02 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Waktu pembuatan: 19 Jan 2021 pada 06.28
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang`
+-- Struktur dari tabel `keranjang`
 --
 
 CREATE TABLE `keranjang` (
@@ -41,22 +42,22 @@ CREATE TABLE `keranjang` (
   `jumlah` varchar(255) DEFAULT NULL,
   `total` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `keranjang`
+-- Dumping data untuk tabel `keranjang`
 --
 
 INSERT INTO `keranjang` (`id_keranjang`, `id_produk`, `no_hp_penjual`, `username_penjual`, `no_hp_pembeli`, `username_pembeli`, `ukuran`, `harga`, `status`, `poto`, `jumlah`, `total`, `created_at`, `updated_at`) VALUES
-(1, 2, '0895701868604', 'weni', '089696963222', 'oca', '10 mm', '10000000', 4, NULL, '2', '20000000', '2021-01-17 13:34:43', '2021-01-17 15:05:49'),
-(2, 2, '0895701868604', 'weni', '089696963222', 'oca', '10 mm', '10000000', 4, '1610924273gW9ly.png', '5', '50000000', '2021-01-17 13:35:18', '2021-01-17 16:00:51'),
-(3, 2, '0895701868604', 'weni', '089696963222', 'oca', '10 mm', '10000000', 1, NULL, NULL, NULL, '2021-01-17 13:35:22', '2021-01-17 13:35:22');
+(4, 4, '081295153234', 'ptrmyllln', '085390719305', 'sheries', 'Sedang', '20000', 5, '16110306332UCve.jpg', '2', '40000', '2021-01-19 12:17:23', '2021-01-19 12:34:09'),
+(5, 3, '081295153234', 'ptrmyllln', '085390719305', 'sheries', 'Sedang', '15000', 1, NULL, NULL, NULL, '2021-01-19 12:17:31', '2021-01-19 12:17:31'),
+(6, 4, '081295153234', 'ptrmyllln', '085390719305', 'sheries', 'Sedang', '20000', 1, NULL, NULL, NULL, '2021-01-19 12:39:44', '2021-01-19 12:39:44');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembeli`
+-- Struktur dari tabel `pembeli`
 --
 
 CREATE TABLE `pembeli` (
@@ -68,20 +69,20 @@ CREATE TABLE `pembeli` (
   `alamat` varchar(255) NOT NULL,
   `poto` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pembeli`
+-- Dumping data untuk tabel `pembeli`
 --
 
 INSERT INTO `pembeli` (`no_hp_pembeli`, `id_user`, `nama_lengkap`, `username`, `password`, `alamat`, `poto`, `created_at`, `updated_at`) VALUES
-('089696963222', 7, 'Oca', 'oca', 'oca', 'Jl. Imam Bonjol', '1610907626xIxbJ.jpg', '2021-01-17 11:20:26', '2021-01-17 11:20:26');
+('085390719305', 9, 'Sheries Meylian', 'sheries', 'sheries', 'Jl. Rahadi Usman Desa Sungai PelangRT. 006 RW. 003', '1611028861tFDUL.jpg', '2021-01-19 12:01:01', '2021-01-19 12:01:01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penjual`
+-- Struktur dari tabel `penjual`
 --
 
 CREATE TABLE `penjual` (
@@ -94,20 +95,21 @@ CREATE TABLE `penjual` (
   `poto` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `penjual`
+-- Dumping data untuk tabel `penjual`
 --
 
 INSERT INTO `penjual` (`no_hp`, `id_user`, `nama_lengkap`, `nama_toko`, `username`, `password`, `poto`, `alamat`, `created_at`, `updated_at`) VALUES
-('0895701868604', 6, 'Weni', 'Weni Shoop', 'weni', 'weni', '1610907413iTysQ.png', 'Jl.Rahadi Usman', '2021-01-17 11:16:53', '2021-01-17 11:16:53');
+('081295153234', 8, 'Putri Meylina Lilian', 'Rumah Roti', 'ptrmyllln', 'ptrmyllln', '16110273674hqwN.jpeg', 'Jl. Rahadi Usman Desa Sungai Jawi RT. 006 RW. 003', '2021-01-19 11:36:07', '2021-01-19 11:36:07'),
+('0812951532342', 13, 'Wiwik Anggraini', 'Wiwik Store Bakery', 'wiwik', 'wiwik', '1611031878jwf24.jpeg', 'Jl. Rahadi Usman Desa Sungai Pelang RT. 006 RW. 003', '2021-01-19 12:51:18', '2021-01-19 12:51:18');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -120,20 +122,24 @@ CREATE TABLE `produk` (
   `stok` int(6) NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `no_hp_penjual`, `username_penjual`, `nama_produk`, `ukuran`, `harga`, `stok`, `gambar`, `created_at`, `updated_at`) VALUES
-(2, '0895701868604', 'weni', 'Alexsander', '10 mm', '10000000', 20, '1610914070s8OEr.png', '2021-01-17 13:07:50', '2021-01-17 13:07:50');
+(3, '081295153234', 'ptrmyllln', 'Pie Strawberry', 'Sedang', '15000', 20, '161102768079WFi.jpg', '2021-01-19 11:41:20', '2021-01-19 11:41:20'),
+(4, '081295153234', 'ptrmyllln', 'Pie Blueberry', 'Sedang', '20000', 30, '1611027973Afgw1.jpg', '2021-01-19 11:46:13', '2021-01-19 11:46:13'),
+(5, '081295153234', 'ptrmyllln', 'Croissant', 'Sedang', '17000', 17, '1611028152CogiX.jpg', '2021-01-19 11:49:12', '2021-01-19 11:49:12'),
+(6, '081295153234', 'ptrmyllln', 'Baguette', 'Besar', '25000', 12, '1611028756igWfq.jpg', '2021-01-19 11:59:16', '2021-01-19 11:59:16'),
+(7, '0812951532342', 'wiwik', 'Roti Enak', 'Kecil', '5000', 129, '16110319414Ka6b.jpg', '2021-01-19 12:52:21', '2021-01-19 05:09:32');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -144,73 +150,74 @@ CREATE TABLE `users` (
   `level` int(6) NOT NULL,
   `remember_token` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `nama`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Admin', '$2y$10$UzEKEsS/cCQkCtrOh9/cD.GkcrwvqMc0OyLgFYMb0LmBTqwQfINuu', 1, NULL, '2021-01-17 10:58:57', '2021-01-17 10:58:57'),
-(6, 'weni', 'Weni', '$2y$10$rYduQBYR/oLTWQdMlyXCuOaiLymeXMoqKGOveq0Ed0CcT76qeIMbG', 2, NULL, '2021-01-17 11:16:53', '2021-01-17 11:16:53'),
-(7, 'oca', 'Oca', '$2y$10$aAYFLVC4Lj5hO1nWaunTAOnCiT9oATHn2trcqkwCj.1XzYQ2iDVnu', 3, NULL, '2021-01-17 11:20:26', '2021-01-17 18:26:43');
+(8, 'ptrmyllln', 'Putri Meylina Lilian', '$2y$10$49Lihjvnv0UGgIsFBu9fTOHWtXQz6IkxuVttENCWeRMAsvX79/G62', 2, NULL, '2021-01-19 11:36:07', '2021-01-19 11:36:07'),
+(9, 'sheries', 'Sheries Meylian', '$2y$10$e7HVR29ynJY2nj55BmVqC.srlUNx9ImK9BmYV94UrhqM80r06fRpu', 3, NULL, '2021-01-19 12:01:01', '2021-01-19 12:01:01'),
+(13, 'wiwik', 'Wiwik Anggraini', '$2y$10$UV4JHhEEl61.BtjtnWpQHumRkHn0C5Qwbga/skI6HxrpCK4nuR1R.', 2, NULL, '2021-01-19 12:51:18', '2021-01-19 12:51:18');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `keranjang`
+-- Indeks untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD PRIMARY KEY (`id_keranjang`);
 
 --
--- Indexes for table `pembeli`
+-- Indeks untuk tabel `pembeli`
 --
 ALTER TABLE `pembeli`
   ADD PRIMARY KEY (`no_hp_pembeli`);
 
 --
--- Indexes for table `penjual`
+-- Indeks untuk tabel `penjual`
 --
 ALTER TABLE `penjual`
   ADD PRIMARY KEY (`no_hp`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `keranjang`
+-- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_keranjang` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_produk` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
